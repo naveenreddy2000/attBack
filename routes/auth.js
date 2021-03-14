@@ -49,7 +49,6 @@ router.post("/register", (req, res) => {
   
     const email = req.body.email;
     const password = req.body.password;
-    console.log(req.body)
   
     User.findOne({ email }).then(user => {
       if (!user) {
@@ -67,7 +66,7 @@ router.post("/register", (req, res) => {
               payload,
               'secret',
               {
-                expiresIn: 31556926
+                expiresIn: 360000
               },
               (err, token) => {
                 res.json({

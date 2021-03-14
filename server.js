@@ -28,12 +28,11 @@ app.use(passport.initialize());
 require("./passport")(passport);
 
 
+app.use('/auth',authRoutes);
+app.use('/user',endPoints);
 app.get('/test' , (req,res)=>{
     res.json({name : 'naveen',age: 20});
 })
-
-app.use('/auth',authRoutes);
-app.use('/user',endPoints);
 
 app.listen(port , ()=>{
     console.log(`server is running on port ${port}`)
